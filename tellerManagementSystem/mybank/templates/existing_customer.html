@@ -1,0 +1,27 @@
+{%extends "base.html"%}
+
+{% block content %}
+
+<section>
+  <table border='1'>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>DOB</th>
+      <th>Address</th>
+      <th>Gender</th>
+    </tr>
+    {% for items in cx_info %}
+    <tr>  
+      <td>{{ items.first_name }}</td>
+      <td>{{ items.last_name }}</td>
+      <td>{{ items.date_of_birth }}</td>
+      <td>{{ items.address }}</td>
+      <td>{{ items.gender }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</section>
+
+
+{% endblock %}

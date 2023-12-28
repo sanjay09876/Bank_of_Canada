@@ -1,0 +1,124 @@
+{%extends "base.html"%}
+
+{% block content %}
+<h1 class="text-center py-4 m-0">Teller Management System</h1>
+<section id=" accountopeningsection">
+  <div class="text-center text-lg-start mb-5">
+    <button id="existingcx" type="button" class="btn btn-primary btn-lg"
+      style="padding-left: 2.5rem; padding-right: 2.5rem;">Existing Customer</button>
+    <button id="newcx" type="button" class="btn btn-primary btn-lg"
+      style="padding-left: 2.5rem; padding-right: 2.5rem;">New Customer</button>
+  </div>
+</section>
+<form id="existingcx-form" class="px-lg-5" method="get">
+  <div class="form-outline mb-4">
+    <label class="form-label" for="account-number">Account Number</label>
+    <input type="number" name="account-number" id="account-number" class="form-control form-control-lg"
+      placeholder="Enter Customer's Account number" required />
+  </div>
+  <div class="text-center text-lg-start m-4 pt-2">
+    <button id=exisitingcx-submit type="submit" class="btn btn-primary btn-lg"
+      style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit</button>
+  </div>
+</form>
+<form id="newcx-form" class="px-lg-5" method="post">
+  {% csrf_token %}
+  <div class="form-outline mb-4">
+    <label class="form-label" for="first-name">First Name</label>
+    <input type="text" name="first-name" id="first-name" class="form-control form-control-lg"
+      placeholder="Enter Customer's first Name" required />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="last-name">Last Name</label>
+    <input type="text" name="last-name" id="last-name" class="form-control form-control-lg"
+      placeholder="Enter Customer's last Name" required />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="date-of-birth">Date of Birth</label>
+    <input type="date" name="date-of-birth" id="date-of-birth" class="form-control form-control-lg"
+      placeholder="Enter Customer's Date of Birth" required />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="address1">Address Line 1</label>
+    <input type="text" name="address1" id="address1" class="form-control form-control-lg" placeholder="Address Line 1"
+      required />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="address2">Address Line 2</label>
+    <input type="text" name="address2" id="address2" class="form-control form-control-lg"
+      placeholder="Address Line 2" />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="city">City</label>
+    <input type="text" name="city" id="city" class="form-control form-control-lg" placeholder="City" required />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="province">Province</label>
+    <select name="province" id="province">
+      <option value="alberta">Alberta</option>
+      <option value="british_columbia">British Columbia</option>
+      <option value="manitoba">Manitoba</option>
+      <option value="new_brunswick">New Brunswick</option>
+      <option value="newfoundland_and_Labrador">Newfoundland and Labrador</option>
+      <option value="northwest_territories">Northwest Territories</option>
+      <option value="nunavut">Nunavut</option>
+      <option value="nova_scotia">Nova Scotia</option>
+      <option value="ontario">Ontario</option>
+      <option value="prince_edward_island">Prince Edward Island</option>
+      <option value="quebec">Quebec</option>
+      <option value="saskatchewan">Saskatchewan</option>
+      <option value="yukon">Yukon</option>
+    </select>
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="postalcode">Postal Code</label>
+    <input type="text" name="postalcode" id="postalcode" class="form-control form-control-lg" placeholder="Postal Code"
+      required />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="country">Country</label>
+    <input type="text" name="country" id="country" class="form-control form-control-lg" placeholder="Country"
+      required />
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="gender">Gender:</label>
+    <input type="radio" name="gender" id="male" value="male"> Male
+    <input type="radio" name="gender" id="female" value="female"> Female
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="account-type">Account Type:</label>
+    <select name="account-type" id="account-type">
+      <option value="checking">Checking</option>
+      <option value="savings">Savings</option>
+      <option value="TFSA">TFSA</option>
+      <option value="RRSP">RRSP</option>
+      <option value="RRSP">RESP</option>
+      <option value="USD">USD</option>
+    </select>
+  </div>
+  <div class="form-outline mb-4">
+    <h5>ID Verification:</h5>
+    <input type="checkbox" id="provincial" name="provincial" value="provincial">
+    <label for="provincial"> Provincial ID</label><br>
+    <input type="checkbox" id="sin" name="sin" value="sin">
+    <label for="sin"> Social Insurance Number</label><br>
+    <input type="checkbox" id="passport" name="passport" value="passport">
+    <label for="passport"> Passport</label><br>
+    <input type="checkbox" id="utility" name="utility" value="utility">
+    <label for="utility"> Utility Bills</label><br>
+    <input type="checkbox" id="rental" name="rental" value="rental">
+    <label for="rental"> Rental</label><br>
+  </div>
+  <div class="form-outline mb-4">
+    <label class="form-label" for="account-type">Initial Deposit:</label>
+    <input type="number" name="inital-deposit" id="inital-deposit" class="form-control form-control-lg"
+      placeholder="Enter Customer's Initial Deposit" required />
+  </div>
+  <div class="text-center text-lg-start m-4 pt-2">
+    <button type="submit" class="btn btn-primary btn-lg"
+      style="padding-left: 2.5rem; padding-right: 2.5rem;">Submit</button>
+  </div>
+</form>
+
+
+{% endblock %}
